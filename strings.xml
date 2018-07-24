@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">REPORT TO POLICE</string>
+
+    <!-- Strings related to login page-->
+    <string name="mEmail">Enter Email/Username</string>
+    <string name="mPass">Password</string>
+    <string name="login">Login</string>
+    <string name="reset_here">Forgot Password?Reset</string>
+
+    <!--Strings related to reset password-->
+    <string name="InputEmail">Input Email</string>
+    <string name="input_email">Input Email</string>
+    <string name="resetpassword">Reset Password</string>
+    <string name="back">Go back to Login Page</string>
+
+    <!--Strings related to registration page-->
+    <string name="register_here">Register Here</string>
+    <string name="mPhonenumber">Phone Number</string>
+    <string name="mName">Enter Full Name</string>
+    <string name="register">Register</string>
+    <string name="login_here">Go back to Login Page</string>
+    <string name="minimum_password">Password should be more than six characters</string>
+
+    <!--Strings related to main activity-->
+    <string name="reportcrime">Report Crime</string>
+    <string name="reportmissingperson">Report Missing Person</string>
+    <string name="logout">SignOut</string>
+
+    <!--strings related to crime activity-->
+    <string name="street">Street</string>
+    <string name="street_name">Insert street name</string>
+    <string name="citytown">City/Town</string>
+    <string name="citytown_name">Insert City/Town</string>
+    <string name="county">County</string>
+    <string name="crimedetails">Crime Details</string>
+    <string name="crimeDetails">Give more details of the crime scene</string>
+    <string name="registercrime">Register Crime</string>
+    <string name="browse">Browse</string>
+    <string name="recordVideo">Record Video</string>
+    <string name="captureVideo">Capture</string>
+
+    <!--strings related to missing person activty-->
+    <string name="pName">Name</string>
+    <string name="mpName">Insert name of missing person</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
+    <string name="lastseen">Last Seen</string>
+    <string name="details">Details</string>
+    <string name="uploadImage">Upload Image</string>
+    <string name="pAge">Age of Missing Person</string>
+    <string name="pLastSeen">When and where was s\he last seen?</string>
+    <string name="pDetails">Give details of the clothing and any unique information to help us locate him </string>
+    <string name="registermp">Register Missing Person</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_login" />
+</resources>
