@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "244368380224",
+    "firebase_url": "https://reporttopoliceapp.firebaseio.com",
+    "project_id": "reporttopoliceapp",
+    "storage_bucket": "reporttopoliceapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244368380224:android:7d8bad93b23dc596",
+        "android_client_info": {
+          "package_name": "com.example.raymond.reporttopolice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244368380224-p7jn11pp90am9le4k1k6a5qoq2666srs.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "244368380224-p7jn11pp90am9le4k1k6a5qoq2666srs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh3JbVjl0pwYZTjCWHwiRrZGSv_KOm8_w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
