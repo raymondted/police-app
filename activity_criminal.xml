@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:ignore="ContentDescription"
+    tools:context=".CriminalActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/street"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/street_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/street_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/citytown"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/city_town_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/citytown_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/county"/>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/counties_array"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/crimedetails"/>
+
+    <EditText
+        android:id="@+id/crime_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/crimeDetails"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uploadImage"
+            android:textSize="22sp"
+            android:drawableEnd="@color/colorPrimaryWhite"
+            android:drawableRight="@color/colorPrimaryWhite"/>
+
+
+        <ImageView
+            android:id="@+id/bPhoto"
+            android:layout_width="190dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="57sp"
+            android:background="#b7b5b7"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:layout_marginStart="57sp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@color/colorPrimaryWhite"
+                android:drawableRight="@color/colorPrimaryWhite"
+                android:text="@string/recordVideo"
+                android:textSize="20sp"
+                android:onClick="dispatchTakeVideoIntent"/>
+
+
+            <VideoView
+                android:id="@+id/v"
+                android:layout_width="200dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="57sp"
+                android:layout_marginStart="57sp"
+                android:src="@drawable/video_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/bSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registercrime" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</ScrollView>
