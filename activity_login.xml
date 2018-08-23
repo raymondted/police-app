@@ -16,8 +16,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryBlue"
-                android:src="@drawable/police_flag"
+                android:background="@drawable/police_flag"
                 tools:ignore="ContentDescription" />
 
 
@@ -50,6 +49,9 @@
         android:layout_height="wrap_content"
         android:padding="25dp"
         android:id="@+id/bLogin"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,6 +60,9 @@
         android:text="@string/register_here"
         android:onClick="Register_Link"
         android:textStyle="bold" />
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/resetPassword"
@@ -65,7 +70,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/reset_here"
+        android:onClick="resetpassword"
         android:textStyle="bold" />
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/googleBtn"
@@ -75,6 +84,17 @@
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" />
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/by_signing_in_you_agree_to_our_privacy_terms_and_conditions"
+                android:textAlignment="center"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
         </LinearLayout>
 

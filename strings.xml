@@ -27,17 +27,16 @@
     <string name="logout">SignOut</string>
 
     <!--strings related to crime activity-->
-    <string name="street">Street</string>
-    <string name="street_name">Insert street name</string>
-    <string name="citytown">City/Town</string>
-    <string name="citytown_name">Insert City/Town</string>
-    <string name="county">County</string>
+    <string name="location">Location</string>
     <string name="crimedetails">Crime Details</string>
     <string name="crimeDetails">Give more details of the crime scene</string>
     <string name="registercrime">Register Crime</string>
     <string name="browse">Browse</string>
     <string name="recordVideo">Record Video</string>
     <string name="captureVideo">Capture</string>
+    <string name="currentlocation">Get Current Location</string>
+    <string name="start">Click on Button for Location</string>
+    <string name="instructions">You can upload either photo or video or even both</string>
 
     <!--strings related to missing person activty-->
     <string name="pName">Name</string>
@@ -50,8 +49,8 @@
     <string name="details">Details</string>
     <string name="uploadImage">Upload Image</string>
     <string name="pAge">Age of Missing Person</string>
-    <string name="pLastSeen">When and where was s\he last seen?</string>
-    <string name="pDetails">Give details of the clothing and any unique information to help us locate him </string>
+    <string name="pLastSeen">When and where was the person last seen?</string>
+    <string name="pDetails">Give details of the clothing and any unique information to help us locate the person </string>
     <string name="registermp">Register Missing Person</string>
 
     <!-- Strings related to login -->
@@ -67,4 +66,12 @@
         completions."
     </string>
     <string name="title_activity_login" />
+
+    <!--Strings related to menu options-->
+    <string name="privacy">Privacy Terms</string>
+    <string name="help">Help and Feedback</string>
+    <string name="exit">Exit</string>
+    <string name="textview">TextView</string>
+    <string name="by_signing_in_you_agree_to_our_privacy_terms_and_conditions">By signing in you agree to our Privacy Terms and Conditions</string>
+
 </resources>

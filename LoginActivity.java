@@ -1,10 +1,16 @@
 package com.project.raymond.reporttopolice;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,14 +56,6 @@ public class LoginActivity extends AppCompatActivity{
         Button bLogin = findViewById(R.id.bLogin);
         button = findViewById(R.id.googleBtn);
         mTextview = findViewById(R.id.resetPassword);
-
-        mTextview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),ResetPassword.class);
-                startActivity(intent);
-            }
-        });
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -207,6 +205,36 @@ public class LoginActivity extends AppCompatActivity{
                 public void Register_Link(View view)
     {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-    }}
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mymenu1, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.privacy:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
+
+            case R.id.help:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
+                }
+                return true;
+        }@Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        System.exit(0);
+    }
+
+    public void resetpassword(View view) {
+        startActivity(new Intent(LoginActivity.this,ResetPassword.class));
+        }}
 
 

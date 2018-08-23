@@ -12,7 +12,6 @@
     android:layout_margin="8dp"
     tools:context=".MissingPersonActivity">
 
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -23,6 +22,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pName"
                 android:textSize="20sp"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
 
             <EditText
                 android:id="@+id/mp_name"
@@ -31,19 +34,32 @@
                 android:inputType="text"
                 android:hint="@string/mpName"/>
 
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/age"
                 android:textSize="20sp"/>
 
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
+
             <EditText
                 android:id="@+id/mp_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="number"
                 android:hint="@string/pAge"/>
 
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,14 +67,21 @@
                 android:text="@string/gender"
                 android:textSize="20sp"/>
 
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
             <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RadioGroup
                     android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="UselessParent">
+
                     <RadioButton
                         android:id="@+id/radio1"
                         android:layout_width="match_parent"
@@ -66,6 +89,11 @@
                         android:checked="false"
                         android:text="@string/radio_male"
                         android:textSize="16sp"/>
+                    <Space
+                        android:layout_width="1dp"
+                        android:layout_height="20dp" />
+
+
                     <RadioButton
                         android:id="@+id/radio2"
                         android:layout_width="match_parent"
@@ -74,6 +102,10 @@
                         android:text="@string/radio_female"
                         android:textSize="16sp"/>
                 </RadioGroup>
+                <Space
+                    android:layout_width="1dp"
+                    android:layout_height="20dp" />
+
             </LinearLayout>
 
             <TextView
@@ -81,26 +113,40 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lastseen"
                 android:textSize="20sp"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
             <EditText
                 android:id="@+id/mp_last_seen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:hint="@string/pLastSeen"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/details"
                 android:textSize="20sp"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
 
             <EditText
                 android:id="@+id/mp_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:hint="@string/pDetails"/>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -115,6 +161,12 @@
                     android:text="@string/uploadImage"
                     android:textSize="22sp"
                     android:textStyle="bold"/>
+
+                <Space
+                    android:layout_width="1dp"
+                    android:layout_height="20dp" />
+
+
                 <ImageView
                     android:id="@+id/select_img"
                     android:layout_width="150dp"
@@ -125,20 +177,39 @@
                     android:layout_marginStart="57dp" />
 
             </LinearLayout>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/bRegister_mp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/registermp"/>
-
             </LinearLayout>
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="20dp" />
+
 
         </LinearLayout>
-
-
 
 </ScrollView>

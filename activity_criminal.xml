@@ -10,61 +10,93 @@
     tools:ignore="ContentDescription"
     tools:context=".CriminalActivity">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/location"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/locationText"
+            android:hint="@string/start"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            tools:layout_editor_absoluteX="219dp"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_width="212dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"/>
+
+        <Button
+            android:id="@+id/getLocationBtn"
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:text="@string/currentlocation"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="267dp"
+            android:layout_width="94dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/crimedetails"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/crime_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="@string/crimeDetails"/>
+    </LinearLayout>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/street"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/street_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/street_name"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/citytown"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/city_town_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/citytown_name"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="@string/county"/>
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/counties_array"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="@string/crimedetails"/>
-
-    <EditText
-        android:id="@+id/crime_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/crimeDetails"/>
+        android:layout_height="match_parent"
+        android:text="@string/instructions"/>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,66 +105,127 @@
             tools:ignore="UseCompoundDrawables">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/uploadImage"
-            android:textSize="22sp"
-            android:drawableEnd="@color/colorPrimaryWhite"
-            android:drawableRight="@color/colorPrimaryWhite"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/uploadImage"
+                android:textSize="22sp"
+                android:drawableEnd="@color/colorPrimaryWhite"
+                android:drawableRight="@color/colorPrimaryWhite"/>
 
 
-        <ImageView
-            android:id="@+id/bPhoto"
-            android:layout_width="190dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="57sp"
-            android:background="#b7b5b7"
-            app:srcCompat="@android:drawable/ic_menu_camera"
-            android:layout_marginStart="57sp" />
+            <ImageView
+                android:id="@+id/bPhoto"
+                android:layout_width="190dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="57sp"
+                android:background="#b7b5b7"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                android:layout_marginStart="57sp" />
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="wrap_content"
+                 <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@color/colorPrimaryWhite"
-                android:drawableRight="@color/colorPrimaryWhite"
-                android:text="@string/recordVideo"
-                android:textSize="20sp"
-                android:onClick="dispatchTakeVideoIntent"/>
+                     android:orientation="horizontal">
 
 
             <VideoView
-                android:id="@+id/v"
-                android:layout_width="200dp"
-                android:layout_height="130dp"
-                android:layout_marginLeft="57sp"
-                android:layout_marginStart="57sp"
-                android:src="@drawable/video_icon" />
-        </LinearLayout>
+                android:id="@+id/videoUpload"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toTopOf="@+id/btnUploadVideo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtVideoName"
+                app:layout_constraintVertical_bias="0.123" />
+
+                 </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@color/colorPrimaryWhite"
+            android:drawableRight="@color/colorPrimaryWhite"
+            android:text="@string/recordVideo"
+            android:textSize="20sp"
+            android:onClick="dispatchTakeVideoIntent"/>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
+    <TextView
+        android:id="@+id/txtProgress"
+        android:layout_width="190dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center"
+        android:textStyle="bold"
+        app:fontFamily="serif"
+        app:layout_constraintBottom_toTopOf="@+id/btnUploadVideo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoUpload"
+        app:layout_constraintVertical_bias="1.0" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/bSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/registercrime" />
+            <Button
+                android:id="@+id/bSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/registercrime" />
 
         </LinearLayout>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="20dp" />
 
-    </LinearLayout>
-
-
-
+</LinearLayout>
 </ScrollView>

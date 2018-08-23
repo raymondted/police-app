@@ -1,10 +1,15 @@
 package com.project.raymond.reporttopolice;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,7 +57,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String enteredName, enteredPhone, enteredEmail, enteredPassword;
 
-
                 enteredName = etName.getText().toString();
                 enteredPhone = etPhoneNumber.getText().toString();
                 enteredEmail = etEmail.getText().toString();
@@ -87,7 +91,6 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-
 //                create user
                 mAuth.createUserWithEmailAndPassword(enteredEmail,enteredPassword)
                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -97,24 +100,52 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()){
                                     Toast.makeText(RegisterActivity.this, "Authentication failed."+task.getException(), Toast.LENGTH_SHORT).show();
                                 }else{
-                                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                     finish();
-
-
                                 }
-
-
                             }
                         });
-
-
             }
         });
-
-
+        }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.app_name);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage("Do you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        RegisterActivity.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mymenu1, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.privacy:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
 
-
-}
+            case R.id.help:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
+        }
+        return true;
+        }}
 

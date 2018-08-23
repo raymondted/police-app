@@ -43,7 +43,6 @@ public class ResetPassword extends AppCompatActivity {
                 startActivity(new Intent(ResetPassword.this, LoginActivity.class));
             }
         });
-        finish();
 
 
         resetPassword.setOnClickListener(new View.OnClickListener() {

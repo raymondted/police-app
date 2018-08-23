@@ -7,9 +7,9 @@
     tools:context=".Splash">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/kenya_police"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/npsc"
         tools:ignore="ContentDescription" />
 
 </LinearLayout>

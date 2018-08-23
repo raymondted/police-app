@@ -9,10 +9,14 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -28,6 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Date;
 import java.util.HashMap;
 
 public class MissingPersonActivity extends AppCompatActivity {
@@ -35,18 +40,22 @@ public class MissingPersonActivity extends AppCompatActivity {
     EditText mpName, mpAge, mpLastSeen, mpDetails;
 
     ImageView bPhoto;
-    String selectedRadioBtn;
     RadioGroup radiogroup;
     RadioButton radio1,radio2;
+    ProgressBar progressBar;
 
-    String name, age, gender, lastseen, details;
+    String name, age, lastseen, details;
+    String gender = "";
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
+    int upolad_status = 0;
 
     private DatabaseReference databaseReferenceMP;
     private FirebaseAuth mAuth;
     private StorageReference storageReference;
     private String currentUID,downloadUrl;
 
+    java.util.Date Date = new Date();
+    String dateString = Date.toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +64,7 @@ public class MissingPersonActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUID = mAuth.getCurrentUser().getUid();
-        databaseReferenceMP = FirebaseDatabase.getInstance().getReference().child("Missing Persons").child(currentUID);
+        databaseReferenceMP = FirebaseDatabase.getInstance().getReference().child("MISSING PERSONS").child(currentUID).child(dateString);
         storageReference = FirebaseStorage.getInstance().getReference().child("PersonsImages");
 
         radiogroup = findViewById(R.id.radioGroup);
@@ -67,16 +76,14 @@ public class MissingPersonActivity extends AppCompatActivity {
         mpDetails = findViewById(R.id.mp_details);
         bPhoto = findViewById(R.id.select_img);
         Button bRegister_mp = findViewById(R.id.bRegister_mp);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
        bRegister_mp.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                AddMissingPerson();
-               if (radio1.isChecked()){
-                   selectedRadioBtn = radio1.getText().toString();
-               }else if (radio2.isChecked()){
-                   selectedRadioBtn = radio2.getText().toString();
-               }
+
            }
        });
         bPhoto.setOnClickListener(new View.OnClickListener() {
@@ -85,14 +92,26 @@ public class MissingPersonActivity extends AppCompatActivity {
                 SelectImage();
             }
         });
-    }
+        }
 
 
     private void AddMissingPerson(){
+
+        if (upolad_status==1){
+
             String name = mpName.getText().toString().trim();
             String age = mpAge.getText().toString().trim();
             String lastseen = mpLastSeen.getText().toString().trim();
             String details = mpDetails.getText().toString().trim();
+        if (radio1.isChecked()){
+            gender = "male";
+        }else if (radio2.isChecked()){
+            gender = "female";
+        }else
+        {
+            Toast.makeText(this,"Please select gender",Toast.LENGTH_LONG).show();
+            return;
+        }
 
             if (TextUtils.isEmpty(name)){
                 Toast.makeText(this, "Enter Missing Person's Name", Toast.LENGTH_LONG).show();
@@ -111,10 +130,12 @@ public class MissingPersonActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(details)){
                 Toast.makeText(this, "Please enter further details", Toast.LENGTH_LONG).show();
             }else {
+                progressBar.setVisibility(View.VISIBLE);
 
                 HashMap postData = new HashMap();
                 postData.put("Name",name);
                 postData.put("Age",age);
+                postData.put("Gender",gender);
                 postData.put("Last Seen",lastseen);
                 postData.put("Details",details);
 
@@ -123,6 +144,8 @@ public class MissingPersonActivity extends AppCompatActivity {
                     public void onComplete( Task task) {
                         if (task.isSuccessful()){
                             Toast.makeText(MissingPersonActivity.this, "Missing Person Details Successfully Reported to Police", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(MissingPersonActivity.this,MainActivity.class);
+                            startActivity(intent);
                         }else{
                             String message = task.getException().getMessage();
                             Toast.makeText(MissingPersonActivity.this, "Error occurred" + message, Toast.LENGTH_LONG).show();
@@ -130,6 +153,9 @@ public class MissingPersonActivity extends AppCompatActivity {
                     }
                 });
             }
+    }else {
+        Toast.makeText(this,"You must upload a photo",Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -180,7 +206,7 @@ public class MissingPersonActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(Task<UploadTask.TaskSnapshot> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(MissingPersonActivity.this, "Your report has been filed to the police", Toast.LENGTH_SHORT).show();
+                        upolad_status = 1;
                         filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
@@ -208,7 +234,7 @@ public class MissingPersonActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(Task<UploadTask.TaskSnapshot> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(MissingPersonActivity.this, "You have successfully sent report to the police", Toast.LENGTH_SHORT).show();
+                        upolad_status = 1;
                         filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
@@ -226,7 +252,57 @@ public class MissingPersonActivity extends AppCompatActivity {
         }
 
     }
-}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mymenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.privacy:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
+
+            case R.id.help:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://raymondted.000webhostapp.com/privacy.html")));
+                break;
+
+            case R.id.Logout:
+                if (mAuth.getCurrentUser() != null) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(MissingPersonActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+
+        }        return true;
+
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.app_name);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage("Do you want to exit this page?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(MissingPersonActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();}
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }}
 
 
 

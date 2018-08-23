@@ -7,7 +7,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -42,8 +41,7 @@
         android:text="@string/reportcrime"
         android:layout_marginBottom="10dp"
         android:layout_margin="10dp"
-        android:padding="25dp"
-        android:background="@color/colorPrimaryBlue"/>
+        android:padding="25dp" />
 
 
 
@@ -55,18 +53,6 @@
         android:padding="25dp"
         android:layout_marginBottom="10dp"
         android:layout_margin="10dp"
-        android:text="@string/reportmissingperson"
-        android:background="@color/colorPrimaryGreen"/>
-
-    <Button
-        android:id="@+id/bLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimaryRed"
-        android:padding="25dp"
-        android:text="@string/logout" />
-
+        android:text="@string/reportmissingperson"/>
 
 </LinearLayout>
